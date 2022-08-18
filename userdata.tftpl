@@ -1,0 +1,10 @@
+  user_data = <<-EOF
+  #!/bin/bash
+  sudo hostenamectl set-hostname instance-${instancename} &&
+  echo "*** Installing apache2"
+  sudo yum update -y
+  sudo yum install -y httpd
+  systemctl start httpd
+  systemctl enable httpd
+  echo "*** Completed Installing apache2"
+  EOF
